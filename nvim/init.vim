@@ -62,9 +62,9 @@ set expandtab
 
 " vim plug
 call plug#begin('~/.config/nvim/plugged')
-Plug  'airblade/vim-gitgutter'
+    Plug  'airblade/vim-gitgutter'
     Plug  'rafi/awesome-vim-colorschemes' 
-Plug  'overcache/NeoSolarized'
+    Plug  'overcache/NeoSolarized'
     Plug  'whatyouhide/vim-gotham'
     Plug  'arcticicestudio/nord-vim'
     Plug  'gosukiwi/vim-atom-dark'
@@ -90,10 +90,14 @@ Plug  'overcache/NeoSolarized'
     Plug  'nvim-lua/plenary.nvim'
     Plug  'tjdevries/express_line.nvim'
     Plug  'mhinz/vim-startify' 
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+    Plug  'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+    Plug  'neoclide/coc.nvim', {'branch': 'release'}
+    Plug  'vim-airline/vim-airline'
+    Plug  'vim-airline/vim-airline-themes'
+    Plug  'tpope/vim-fugitive'
+    
+    Plug  'hardcoreplayers/oceanic-material'
+    Plug  'morhetz/gruvbox'
 call plug#end()
 
 map Q <nop>
@@ -159,6 +163,8 @@ map <C-n> :NERDTreeToggle<CR>
 " my sources
 source $HOME/.config/nvim/coc/coc.vim
 
-colorscheme atom-dark
+" grovbox colorscheme options 
+
+colorscheme gruvbox
 
 let g:coc_global_extensions = ['coc-go', 'coc-python']
