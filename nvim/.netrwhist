@@ -1,12 +1,4 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =6
-let g:netrw_dirhist_6='/home/mohammad/awesome'
-let g:netrw_dirhist_5='/home/mohammad/.config/nvim/keys'
-let g:netrw_dirhist_4='/home/mohammad/awesome/work/paypool/kifpooli'
-let g:netrw_dirhist_3='/home/mohammad/awesome/work/paypool/kifpooli/transport'
-let g:netrw_dirhist_2='/home/mohammad/awesome/work/paypool/kifpooli/transport/rest'
-let g:netrw_dirhist_1='/home/mohammad/awesome/work/paypool/kifpooli/transport'
-let g:netrw_dirhist_0='/home/mohammad/awesome/work/paypool/kifpooli/transport/database'
-let g:netrw_dirhist_9='/home/mohammad/awesome/work/paypool/kifpooli/transport'
-let g:netrw_dirhist_8='/home/mohammad/awesome/work/paypool/kifpooli/transport/controllers'
-let g:netrw_dirhist_7='/home/mohammad/awesome/work/paypool/kifpooli/transport'
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/home/mohammad/.config/awesome'
+let g:netrw_dirhist_1='/home/mohammad/.config/nvim'
