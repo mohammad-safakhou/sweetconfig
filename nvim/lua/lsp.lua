@@ -1,4 +1,4 @@
-local nvim_lsp = require('nvim_lsp')
+local nvim_lsp = require('lspconfig')
 local completion = require('completion')
 
 -- nvim_lsp.gopls.setup{}
@@ -21,8 +21,8 @@ local function completion_on_all_buffers()
     completion.on_attach()
 end
 
-vim.cmd [[nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>]]
-vim.cmd [[nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>]]
+-- vim.cmd [[nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>]]
+vim.cmd [[nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>]]
 vim.cmd [[nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>]]
 vim.cmd [[nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>]]
 vim.cmd [[nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>]]
