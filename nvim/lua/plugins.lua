@@ -43,4 +43,6 @@ return require'packer'.startup(function()
     use { 'kdheepak/lazygit.nvim' }
     use { 'kyazdani42/nvim-web-devicons' }
     use { 'kyazdani42/nvim-tree.lua' }
+    use { 'christianchiarulli/nvcode-color-schemes.vim' }
+    use { 'nvim-treesitter/nvim-treesitter' }
 end)
