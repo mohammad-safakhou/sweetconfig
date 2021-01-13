@@ -2,6 +2,9 @@ syntax on
 " enable filetype plugin loading
 filetype indent plugin on
 
+" colorscheme
+colorscheme challenger_deep
+
 " Case insensitive
 set ignorecase
 " ??
@@ -123,13 +126,6 @@ set splitright
     nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 " }}}
 
-" gruxbox
-    let g:gruvbox_contrast_dark = 'hard'
-
-
-colorscheme gruvbox
-autocmd vimenter * ++nested colorscheme gruvbox
-
 " Lua {{{
     autocmd BufEnter *.lua set ts=3 sw=3 sts=3 expandtab
 " }}}
@@ -141,25 +137,23 @@ let g:lazygit_floating_window_corner_chars = ['╭', '╮', '╰', '╯'] " cust
 let g:lazygit_use_neovim_remote = 1 " for neovim-remote support
 nnoremap <silent> <leader>lg :LazyGit<CR>
 
-
-" nvim-tree
-let g:lua_tree_side = 'left' "left by default
-let g:lua_tree_width = 30 "30 by default
-let g:lua_tree_ignore = [ '.git', 'node_modules', '.cache' ] "empty by default
-let g:lua_tree_auto_open = 1 "0 by default, opens the tree when typing `vim $DIR` or `vim`
-let g:lua_tree_auto_close = 1 "0 by default, closes the tree when it's the last window
-let g:lua_tree_quit_on_open = 0 "0 by default, closes the tree when you open a file
-let g:lua_tree_follow = 1 "0 by default, this option allows the cursor to be updated when entering a buffer
-let g:lua_tree_indent_markers = 1 "0 by default, this option shows indent markers when folders are open
-let g:lua_tree_hide_dotfiles = 0 "0 by default, this option hides files and folders starting with a dot `.`
-let g:lua_tree_git_hl = 1 "0 by default, will enable file highlight for git attributes (can be used without the icons).
-let g:lua_tree_root_folder_modifier = ':~' "This is the default. See :help filename-modifiers for more options
-let g:lua_tree_tab_open = 1 "0 by default, will open the tree when entering a new tab and the tree was previously open
-let g:lua_tree_allow_resize = 1 "0 by default, will not resize the tree when opening a file
-let g:lua_tree_show_icons = {
+" Nvim-tree
+let g:nvim_tree_width = 30 "30 by default
+let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache' ] "empty by default
+let g:nvim_tree_auto_open = 1 "0 by default, opens the tree when typing `vim $DIR` or `vim`
+let g:nvim_tree_auto_close = 1 "0 by default, closes the tree when it's the last window
+let g:nvim_tree_quit_on_open = 0 "0 by default, closes the tree when you open a file
+let g:nvim_tree_follow = 1 "0 by default, this option allows the cursor to be updated when entering a buffer
+let g:nvim_tree_indent_markers = 1 "0 by default, this option shows indent markers when folders are open
+let g:nvim_tree_hide_dotfiles = 1 "0 by default, this option hides files and folders starting with a dot `.`
+let g:nvim_tree_git_hl = 1 "0 by default, will enable file highlight for git attributes (can be used without the icons).
+let g:nvim_tree_root_folder_modifier = ':~' "This is the default. See :help filename-modifiers for more options
+let g:nvim_tree_tab_open = 1 "0 by default, will open the tree when entering a new tab and the tree was previously open
+let g:nvim_tree_width_allow_resize  = 1 "0 by default, will not resize the tree when opening a file
+let g:nvim_tree_show_icons = {
     \ 'git': 1,
-    \ 'folders': 1,
-    \ 'files': 1,
+    \ 'folders': 0,
+    \ 'files': 0,
     \ }
 "If 0, do not show the icons for one of 'git' 'folder' and 'files'
 "1 by default, notice that if 'files' is 1, it will only display
@@ -168,11 +162,12 @@ let g:lua_tree_show_icons = {
 " You can edit keybindings be defining this variable
 " You don't have to define all keys.
 " NOTE: the 'edit' key will wrap/unwrap a folder and open a file
-let g:lua_tree_bindings = {
+let g:nvim_tree_bindings = {
     \ 'edit':            ['<CR>', 'o'],
     \ 'edit_vsplit':     '<C-v>',
     \ 'edit_split':      '<C-x>',
     \ 'edit_tab':        '<C-t>',
+    \ 'close_node':      ['<S-CR>', '<BS>'],
     \ 'toggle_ignored':  'I',
     \ 'toggle_dotfiles': 'H',
     \ 'refresh':         'R',
@@ -190,12 +185,12 @@ let g:lua_tree_bindings = {
 
 " Disable default mappings by plugin
 " Bindings are enable by default, disabled on any non-zero value
-" let lua_tree_disable_keybindings=1
+" let nvim_tree_disable_keybindings=1
 
 " default will show icon by default if no icon is provided
 " default shows no icon by default
-let g:lua_tree_icons = {
-    \ 'default': '',
+let g:nvim_tree_icons = {
+    \ 'default': '🤜',
     \ 'symlink': '',
     \ 'git': {
     \   'unstaged': "✗",
@@ -206,18 +201,29 @@ let g:lua_tree_icons = {
     \   },
     \ 'folder': {
     \   'default': "",
-    \   'open': ""
+    \   'open': "",
+    \   'symlink': "",
     \   }
     \ }
 
-nnoremap <C-n> :LuaTreeToggle<CR>
-nnoremap <leader>r :LuaTreeRefresh<CR>
-nnoremap <leader>n :LuaTreeFindFile<CR>
-" LuaTreeOpen and LuaTreeClose are also available if you need them
+nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <leader>r :NvimTreeRefresh<CR>
+nnoremap <leader>n :NvimTreeFindFile<CR>
+" NvimTreeOpen and NvimTreeClose are also available if you need them
 
 set termguicolors " this variable must be enabled for colors to be applied properly
 
-" a list of groups can be found at `:help lua_tree_highlight`
-highlight LuaTreeFolderIcon guibg=blue
+" a list of groups can be found at `:help nvim_tree_highlight`
+highlight NvimTreeFolderIcon guibg=blue
 
 
+" Neovim tree-sitter
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { "c", "rust" },  -- list of language that will be disabled
+  },
+}
+EOF
