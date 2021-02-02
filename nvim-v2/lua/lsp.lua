@@ -1,7 +1,7 @@
 local nvim_lsp = require('lspconfig')
 local completion = require('completion')
 
--- nvim_lsp.pyls.setup{}
+nvim_lsp.pyls.setup{}
 nvim_lsp.gopls.setup{}
 
 nvim_lsp.elixirls.setup{

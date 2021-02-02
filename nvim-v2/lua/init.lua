@@ -10,6 +10,7 @@ nvim.with_options {
   autoread = true,
   cursorline = true,
   guicursor = '',
+  relativenumber = true,
   compatible = false,
   encoding = 'utf-8',
   hlsearch = true,

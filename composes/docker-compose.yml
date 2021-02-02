@@ -11,4 +11,8 @@ services:
       POSTGRES_USER: root
     expose:
         - 5432
+  mongo:
+        image: mongo
+        ports:
+                - 27017:27017
 

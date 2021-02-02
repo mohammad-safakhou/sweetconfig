@@ -3,6 +3,7 @@ function! s:SimpleConfiguration()
 	set modeline
 	set autoread
 	set cursorline
+    set relativenumber
 	set guicursor
 	set nocompatible
 	set encoding="utf-8"
