@@ -1,16 +1,26 @@
 version: '3.1'
 
 services:
-
+  redis:
+    image: redis
+    restart: always
+    ports:
+       - 6379:6379
+  mysql:
+    image: mysql
+    restart: always
+    environment:
+       MYSQL_ROOT_PASSWORD: root
+    ports:
+       - 3306:3306
   psql:
     image: postgres
-    network_mode: host
     restart: always
     environment:
       POSTGRES_PASSWORD: root
       POSTGRES_USER: root
-    expose:
-        - 5432
+    ports:
+        - 5432:5432
   mongo:
         image: mongo
         ports:
