@@ -44,6 +44,13 @@ services:
       - ALLOW_PLAINTEXT_LISTENER=yes
     depends_on:
       - zookeeper
+  nats:
+    image: 'bitnami/nats:latest'
+    restart: always
+    ports:
+      - 4222:4222
+      - 6222:6222
+      - 8222:8222
   minio:
     image: minio/minio
     command: server /data
