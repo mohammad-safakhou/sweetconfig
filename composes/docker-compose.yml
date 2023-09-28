@@ -90,11 +90,6 @@ services:
       # Data persistency
       # sudo mkdir -p /srv/docker/influxdb/data
       #- /srv/docker/influxdb/data:/var/lib/influxdb
-  nats:
-     image: nats
-     restart: always
-     ports:
-       - "4222:4222"
 volumes:
   zookeeper_data:
     driver: local
