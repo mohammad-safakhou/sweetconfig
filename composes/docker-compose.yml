@@ -53,10 +53,11 @@ services:
       - 8222:8222
   minio:
     image: minio/minio
-    command: server /data
+    command: server --console-address ":9001" /data
     ports:
       - "9000:9000"
       - "9001:9001"
+      - "32873:32873"
     environment:
       MINIO_ROOT_USER: root
       MINIO_ROOT_PASSWORD: password
@@ -90,6 +91,16 @@ services:
       # Data persistency
       # sudo mkdir -p /srv/docker/influxdb/data
       #- /srv/docker/influxdb/data:/var/lib/influxdb
+  timescaledb:
+    image: timescale/timescaledb:latest-pg12
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: password
+    volumes:
+      - /data/timescaledb:/var/lib/postgresql/data
 volumes:
   zookeeper_data:
     driver: local
